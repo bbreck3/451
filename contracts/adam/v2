@@ -1,0 +1,38 @@
+contract mortal {
+	address owner;
+  
+	function mortal() { 
+		owner = msg.sender; 
+	}
+
+	function kill() { 
+		if (msg.sender == owner) suicide(owner);
+	}
+}
+
+contract ProofOfPurchase is mortal { 
+	string x;
+	string y;
+	string z;
+
+	function ProofOfPurchase(string orderNum, string productName, string notes){
+		x = orderNum;
+		y = productName;
+		z = notes;
+	}
+
+	function eReceipt(string orderNum, string productName, string notes) public{
+		x = "newOrderNum";
+		y = productName;
+		z = notes;
+	}
+    
+	function QueryeReceipt(int index) constant returns (string){
+		if(index == 0)
+			return x;
+		if(index == 1)
+			return y;
+		if(index == 2)
+			return z;
+	}
+}
