@@ -1,0 +1,7 @@
+These scripts automate the proces:
+
+1) test_send_transaction.js--> sends 'payment' from node1 to the other node2
+2) deploy.js --> node 2 waits for payment from node1, and only deploys contract when payment 'has been recieved'--> once deployed the contract data is registered to a publicly avaible json file.
+3) test_public_info.js --> if you copy the contract address and abi from the json file into this script and then run it, node 1 can the find the contract and then querry the contract data.
+
+
